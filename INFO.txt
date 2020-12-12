@@ -1,1 +1,22 @@
-Empty
+GPT-2 Story Generator
+Dataset: Kaggle Wikipedia Movie Plots dataset (https://www.kaggle.com/jrobischon/wikipedia-movie-plots), along with scraped superhero comic book plots from Wikipedia
+
+
+Documentation:
+# Modify this cell to create your own stories
+
+# Input format: <BOS> <genre> Optional prompt...
+# Supported genres: superhero, sci_fi, horror, action, thriller, drama
+story = story_generator("<BOS> <superhero> Batman is hunting down", max_length= 75) 
+print(story[0]["generated_text"])
+
+
+Examples:
+input_prompt = "<BOS> <superhero> Batman"
+story = story_generator(input_prompt, max_length=100, do_sample=True,
+               repetition_penalty=1.1, temperature=1.2, 
+               top_p=0.95, top_k=50)
+print(story)
+
+story = story_generator("<BOS> <superhero> Batman is hunting down", max_length= 75) 
+print(story[0]["generated_text"])
