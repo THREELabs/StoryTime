@@ -20,3 +20,24 @@ print(story)
 
 story = story_generator("<BOS> <superhero> Batman is hunting down", max_length= 75) 
 print(story[0]["generated_text"])
+
+https://towardsdatascience.com/generate-fresh-movie-stories-for-your-favorite-genre-with-deep-learning-143da14b29d6
+
+
+Optional: Exploring Text-Generation Parameters
+First, let’s learn what the output of the GPT2LMHeadModel is:
+The model produces logits for all the possible tokens in its vocabulary when predicting the next token. To simplify, think of these logits as scores for each token. Tokens that have higher scores (logits) mean that they have higher probability to be an appropriate next token. We then apply a softmax operation on the logits of all tokens. We now get a softmax score of each token that is between 0 and 1. The softmax scores of all tokens sum up to 1. These softmax scores can be considered as probabilities (although they aren’t) of a token being an appropriate next token given some previous text.
+
+Below is a basic outlin of the parameters:
+
+max_length [int]: Specifies the maximum number of tokens to generate.
+
+do_sample [bool]: Specifies whether to use sampling (such as top_p or use greedy search). Greedy search is selecting most probable word at each time step (not recommended as text can get repetitive).
+
+repetition_penalty [float]: Specifies penalty for repetition. Increase the repetition_penalty parameter to reduce repetition.
+
+temperature [float]: Used to increase or decrease reliance on high-logits tokens. Increasing temperature value reduces the chance of only few tokens having very high softmax scores.
+
+top_p [float]: Specifies to consider only the tokens whose sum of probability (formally, softmax) scores does not exceed the value of top_p
+
+top_k [int]: Tells us to only consider top_k number of tokens (ranked by their softmax scores) when generating a text.
