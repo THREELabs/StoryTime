@@ -1,8 +1,17 @@
-GPT-2 Story Generator
+GPT-2 Story Generator / Python
 Dataset: Kaggle Wikipedia Movie Plots dataset (https://www.kaggle.com/jrobischon/wikipedia-movie-plots), along with scraped superhero comic book plots from Wikipedia
 
 
 Documentation:
+
+ The model input format is of the form:
+<BOS> <genre> Optional prompt…
+e.g. <BOS> <sci_fi> After discovering time travel,
+where genre belongs to: superhero, sci_fi, action, drama, horror, thriller
+
+
+
+
 # Modify this cell to create your own stories
 
 # Input format: <BOS> <genre> Optional prompt...
